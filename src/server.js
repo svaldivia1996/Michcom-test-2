@@ -7,8 +7,13 @@ const mongoose = require('mongoose')
 const app = express();
 const port = 3000;
 
+// mongoose.Promise = global.Promise
 
-
+mongoose.connect('mongodb://localhost/api',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(db => console.log(`db is connected`))
+    .catch(err=>console.log(err))
 
 
 app.get('/',(req, res)=>{
@@ -18,6 +23,9 @@ app.get('/',(req, res)=>{
 //middlewares
 app.use(morgan('dev'))
 app.use(bodyParser.json())
+
+
+//routes
 app.use('/api', [paymentsRoutes])
 
 
