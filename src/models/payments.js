@@ -7,7 +7,7 @@ const paymentSchema = new Schema({
     lastName: { type: String, required: true },
     description: { type: String, required: true },
     serviceHour: { type: Number, required: true },
-    amountOfService: { type: Number, required: true },
+    amountOfService: { type: Number, required: false },
     date: { type: String, required: true },
     dayAmountUf: { type: Number, required: true },
     createdAt: { type: Date, default: Date.now() }
