@@ -1,10 +1,13 @@
 const Payment = require('../models/payments')
 const mindicadorData = require('../utils/mindicador')
+const { paymentValidation } = require('../utils/validator')
 
 exports.updatePayment = async (req, res) => {
 
     try {
         const payload = req.body
+        //validar payload
+        paymentValidation.validate(payload)
         const findPayment = await Payment.find({id: req.params.id})
 
         if (findPayment.length === 1) {
@@ -21,7 +24,6 @@ exports.updatePayment = async (req, res) => {
 
             return res.status(200).send({ message: 'Payment updated successfully'})
         }
-
         // return res.status(200).send({ message: 'Payment updated successfully'})
         return res.status(404).send({error: 'not found'})
     }
