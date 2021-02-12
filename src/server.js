@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const rateLimit = require('express-rate-limit')
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000
 
 const apiLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
