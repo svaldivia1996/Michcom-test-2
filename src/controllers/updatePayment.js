@@ -7,10 +7,7 @@ exports.updatePayment = async (req, res) => {
         const payload = req.body
         //validar payload
         paymentValidation.validate(payload)
-        console.log('hola')
         const findPayment = await Payment.find({id: req.params.id})
-
-
         if (findPayment.length === 1) {
             const mindicador = await mindicadorData(payload.serviceHour)
             findPayment[0].name = payload.name
