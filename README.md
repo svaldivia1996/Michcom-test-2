@@ -5,6 +5,5 @@ API de Registro de pagos de servicios profesionales en UF's
 
 ```javascript
 npm install
-mongod
 npm run dev
 ```

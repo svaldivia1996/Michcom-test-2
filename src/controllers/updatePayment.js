@@ -3,12 +3,13 @@ const mindicadorData = require('../utils/mindicador')
 const { paymentValidation } = require('../utils/validator')
 
 exports.updatePayment = async (req, res) => {
-
     try {
         const payload = req.body
         //validar payload
         paymentValidation.validate(payload)
+        console.log('hola')
         const findPayment = await Payment.find({id: req.params.id})
+
 
         if (findPayment.length === 1) {
             const mindicador = await mindicadorData(payload.serviceHour)
