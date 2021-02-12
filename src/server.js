@@ -15,8 +15,8 @@ const apiLimiter = rateLimit({
 })
 
 // mongoose.Promise = global.Promise
-
-mongoose.connect('mongodb://localhost/api',{
+// mongoose.connect('mongodb://localhost/api',{
+mongoose.connect('mongodb+srv://UserTest:KdNDYpK36qniL6ke@cluster0.tovt5.mongodb.net/test?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(db => console.log(`db is connected`))
